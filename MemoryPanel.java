@@ -13,7 +13,7 @@ public class MemoryPanel extends Panel{
 		this.nbCaseH = nbCaseH;
 		this.nbCaseL = nbCaseL;
 		// fixer sa dimension
-		setPreferredSize(new Dimension(largeurCard*nbCaseL,hauteurCard*nbCaseH));
+		setPreferredSize(new Dimension(largeurCard*nbCaseL,hauteurCard*nbCaseH)); //ici est le problème
 		
 		// choisir la couleur de fond
 		
