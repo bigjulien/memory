@@ -32,6 +32,8 @@ public MemoryFrame(){
 	// la rendre visible
 	this.pack();
 	// Eviter l'étalement
+	setResizable(false);
+	// Eviter qu'il y ait de l'espace entre les cartes 
 	}
 
 }
