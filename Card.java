@@ -15,12 +15,12 @@ class Card extends Canvas {
 		this.largeur=largeur;
 		this.hauteur=hauteur;
 		// fixer sa dimension
-		setPreferredSize(new Dimension(hauteur, largeur));
+		setSize(new Dimension(hauteur, largeur));
 		
 	}
 	
 	public void paint(Graphics g) {
-		
+		setBackground(Color.red);
 		try
 		{
 			b = ImageIO.read(new File("ressources/a01.jpg"));

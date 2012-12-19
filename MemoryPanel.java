@@ -17,6 +17,7 @@ public class MemoryPanel extends Panel{
 		setPreferredSize(new Dimension(largeurCard*nbCaseL,hauteurCard*nbCaseH));
 		setLayout(new GridLayout(nbCaseH,nbCaseL));
 		add(cr);
+		
 	}
 
 	public void paint (Graphics g)
@@ -36,5 +37,6 @@ public class MemoryPanel extends Panel{
 		}	
 		
 	 }
+	
 
 }
