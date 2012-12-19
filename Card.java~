@@ -1,5 +1,5 @@
 import java.awt.*;
-
+import java.awt.event.*;
 class Card extends Canvas{
 //dessiner une image
 	

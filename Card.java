@@ -11,7 +11,7 @@ class Card extends Canvas{
 		this.largeur=largeur;
 		this.hauteur=hauteur;
 		// fixer sa dimension
-		setSize(largeur,hauteur);
+		setPreferredSize(new Dimension(largeur,hauteur));
 	
 	}//fin de public Card
 
