@@ -8,37 +8,30 @@ Menu game = new Menu("Game");
 MenuItem nouvelle_partie = new MenuItem("Nouvelle partie");
 MenuItem quitter = new MenuItem("Quitter");
 Label l = new Label("Infos");
-Panel p = new MemoryPanel(6,6);
-    // fermer la fenetre avec un bouton terminer
-    public MemoryFrame(){	  
-	// la rendre visible
+Panel p = new MemoryPanel(4,7);
+
+    
+public MemoryFrame(){	  
+	
 	
 	setLayout(new BorderLayout());
+	add(p, BorderLayout.CENTER);
 	add(l,BorderLayout.SOUTH);
-	add(p,BorderLayout.NORTH);
+	
 	
 	// on configure la barre de menu
-	this.setMenuBar(barreMenu);
+	setMenuBar(barreMenu);
 	barreMenu.add(game);
 	game.add(nouvelle_partie);
 	game.add(quitter);
 	
-
-	
-
-	// choisir la couleur des caractères
-
-	// écrire du texte dans l'entete de la fenetre
-	setTitle("Memory game");
-	
-	
 	quitter.addActionListener(new ActionQuitter());	
+	
+	setTitle("Memory game");
 	setVisible(true);
 	// la rendre visible
 	this.pack();
-	
-	
-
+	// Eviter l'étalement
 	}
 
 }
