@@ -15,7 +15,7 @@ Panel p = new MemoryPanel(10,10);
 	
 	setLayout(new BorderLayout());
 	add(l,BorderLayout.SOUTH);
-	add(p,BorderLayout.NORTH);
+	add(p,BorderLayout.CENTER);
 	
 	// on configure la barre de menu
 	this.setMenuBar(barreMenu);

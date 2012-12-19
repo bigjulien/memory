@@ -4,7 +4,7 @@ public class MemoryPanel extends Panel{
 	//Distribution des cartes
 	
 	private int nbCaseH, largeurCard, hauteurCard, nbCaseL;
-	Card c= new Card(30,10);
+	Card c= new Card(80,120);
 
 	public MemoryPanel(int nbCaseH, int nbCaseL){
 			

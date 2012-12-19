@@ -8,7 +8,7 @@ Menu game = new Menu("Game");
 MenuItem nouvelle_partie = new MenuItem("Nouvelle partie");
 MenuItem quitter = new MenuItem("Quitter");
 Label l = new Label("Infos");
-Panel p = new MemoryPanel(10,10);
+Panel p = new MemoryPanel(6,6);
     // fermer la fenetre avec un bouton terminer
     public MemoryFrame(){	  
 	// la rendre visible
