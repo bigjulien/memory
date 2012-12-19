@@ -15,8 +15,6 @@ public class MemoryPanel extends Panel{
 		// fixer sa dimension
 		setSize(largeurCard*nbCaseL,hauteurCard*nbCaseH);
 		
-		
-		
 		// choisir la couleur de fond
 		
 	}//fin de public MemoryPanel

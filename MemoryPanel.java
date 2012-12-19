@@ -17,7 +17,7 @@ public class MemoryPanel extends Panel{
 		
 		// choisir la couleur de fond
 		
-	}//fin de public MemoryPanel
+	}//fin de public MemoryPanel.
 
 	public void paint (Graphics g){
 	setBackground(Color.white);
