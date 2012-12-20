@@ -4,7 +4,8 @@ import java.awt.event.*;
 
 public class MemoryPanel extends Panel{
 		
-	private int nbCaseH,nbCaseL,largeurCard=105, hauteurCard=165;	
+	private int nbCaseH,nbCaseL;
+	final static int largeurCard=105, hauteurCard=165;	
 	
 	public MemoryPanel(int nbCaseL, int nbCaseH)
 	{		

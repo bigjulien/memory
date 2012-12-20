@@ -7,7 +7,7 @@ MenuBar barreMenu = new MenuBar();
 Menu game = new Menu("Game");
 MenuItem nouvelle_partie = new MenuItem("Nouvelle partie");
 MenuItem quitter = new MenuItem("Quitter");
-Label l = new Label("Infos");
+Label l = new Label("Pas d'informations a afficher");
 Panel p = new MemoryPanel(4,7);
 
     
