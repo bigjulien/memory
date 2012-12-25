@@ -9,7 +9,7 @@ class Card extends Canvas {
 	java.util.Random r=new java.util.Random();
 	BufferedImage b;
 	private String carte ;
-	private boolean cachee ;
+	public boolean cachee ;
 	
 	
 	Card(String nom,boolean pf)

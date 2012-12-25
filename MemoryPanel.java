@@ -1,8 +1,13 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+ 
 
 
-public class MemoryPanel extends Panel{
+public class MemoryPanel extends Panel implements MouseListener{ 
+	
 		
 	private int nbCaseH,nbCaseL;
 	final static int largeurCard=105, hauteurCard=165, setnb = 53;	
@@ -52,8 +57,8 @@ public class MemoryPanel extends Panel{
 					quellecase2 = 0;
 				}
 			}			
-			tc[quellecase1] = new Card(nomCarte,false);
-			tc[quellecase2] = new Card(nomCarte,false);			
+			tc[quellecase1] = new Card(nomCarte,true);
+			tc[quellecase2] = new Card(nomCarte,true);			
 		}
 		
 		for(int i=0 ; i < (nbCaseL*nbCaseH) ; i++)
@@ -62,8 +67,31 @@ public class MemoryPanel extends Panel{
 		}
 			
 		setBackground(Color.black);
-		
+		this.addMouseListener(this);		
 	}
+	@Override
+	public void mouseClicked(MouseEvent e) {}
 
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+
+	@Override
+	public void mouseExited(MouseEvent e) {}
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+	
+	@Override
+	public void mousePressed(MouseEvent e) 
+	{
+		int quellecarte ;
+		System.out.println("souris");
+		int x = (int)(e.getX()/largeurCard);
+		int y = (int)(e.getY()/largeurCard);		
+		quellecarte = (y*nbCaseL)+x;
+		
+		tc[quellecarte].cachee = false;
+		this.repaint();
+	}
 	
 }
