@@ -6,20 +6,34 @@ import java.io.*;
 import java.util.*;
 
 class Card extends Canvas {
-
+	java.util.Random r=new java.util.Random();
 	BufferedImage b;
+	private String carte ;
+	private boolean cachee ;
 	
 	
+	Card(String nom,boolean pf)
+	{	
+		this.carte = nom;
+		this.cachee = pf;
+	}
 	public void paint(Graphics g) {
 		
 		try
 		{
-			b = ImageIO.read(new File("ressources/a01.jpg"));
+			if(!cachee)
+			{
+				b = ImageIO.read(new File("ressources/font.jpg"));
+			}
+			else
+			{
+				b = ImageIO.read(new File("ressources/"+carte+".jpg"));
+			}
 			g.drawImage(b,0,0,null);
 		}
 		catch(IOException e)
 		{
-			System.out.println("ERREUR");
+			System.out.println("Je n'arrive pas a lire le fichier jpeg");
 		}
 		//dessiner une image sur la carte
 		
