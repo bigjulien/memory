@@ -21,7 +21,7 @@ class Card extends Canvas {
 		
 		try
 		{
-			if(!cachee)
+			if(cachee)
 			{
 				b = ImageIO.read(new File("ressources/font.jpg"));
 			}

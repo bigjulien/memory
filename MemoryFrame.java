@@ -29,12 +29,13 @@ public class MemoryFrame extends Frame {
 		quitter.addActionListener(new ActionQuitter());	
 	
 		setTitle("Memory game");
-		setVisible(true);
-		// la rendre visible
+		
 		this.pack();
 		// Eviter l'étalement
 		setResizable(false);
 		// Eviter qu'il y ait de l'espace entre les cartes 
+		setVisible(true);
+		// la rendre visible
 	}
 
 }
