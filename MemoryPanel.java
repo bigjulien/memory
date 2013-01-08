@@ -3,7 +3,8 @@ import java.awt.event.*;
 
 
 
-public class MemoryPanel extends Panel implements MouseListener{ 
+
+public class MemoryPanel extends Panel { 
 	
 		
 	private int nbCaseH,nbCaseL;
@@ -62,29 +63,10 @@ public class MemoryPanel extends Panel implements MouseListener{
 		{
 			add(tc[i]);
 		}
-		addMouseListener(this);		
+			
 		setBackground(Color.black);
 			
 	}
 
-	public void mousePressed(MouseEvent e) {		
-		int quellecarte ;		
-		int x = (int)(e.getX()/largeurCard);
-		int y = (int)(e.getY()/largeurCard);		
-		quellecarte = (y*nbCaseL)+x;
-		System.out.println(quellecarte);
-		tc[quellecarte].cachee = false;
-		repaint();}
-
-	
-	public void mouseEntered(MouseEvent e) {}
-
-	
-	public void mouseExited(MouseEvent e) {}
-	
-	
-	public void mouseReleased(MouseEvent e) {}
-	
-	public void mouseClicked(MouseEvent e) {}
 	
 }

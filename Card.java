@@ -5,7 +5,7 @@ import javax.imageio.*;
 import java.io.*;
 import java.util.*;
 
-class Card extends Canvas {
+class Card extends Canvas implements MouseListener{
 	java.util.Random r=new java.util.Random();
 	BufferedImage b;
 	private String carte ;
@@ -16,6 +16,7 @@ class Card extends Canvas {
 	{	
 		this.carte = nom;
 		this.cachee = pf;
+		addMouseListener(this);	
 	}
 	public void paint(Graphics g) {
 		
@@ -40,5 +41,20 @@ class Card extends Canvas {
 	}
 	
 
+	public void mousePressed(MouseEvent e) {		
+		cachee = false;
+		repaint();
+	}
+
+	
+	public void mouseEntered(MouseEvent e) {}
+
+	
+	public void mouseExited(MouseEvent e) {}
+	
+	
+	public void mouseReleased(MouseEvent e) {}
+	
+	public void mouseClicked(MouseEvent e) {}
 	
 }
