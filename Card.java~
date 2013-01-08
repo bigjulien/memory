@@ -59,7 +59,7 @@ class Card extends Canvas implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		int[] numdecarte= new int[1];
 		int m = 0;
-		for(int j=0 ; j < (MemoryPanel.nbCaseL*MemoryPanel.nbCaseH)-1 ; j++)
+		for(int j=0 ; j < 14 ; j++)
 		{
 			int nbcartesret = 0;
 			if(MemoryPanel.tc[j].cachee == false)

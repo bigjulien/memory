@@ -4,12 +4,12 @@ import java.awt.event.*;
 
 
 
-public class MemoryPanel extends Panel { 
+public class MemoryPanel extends Panel implements MouseListener{ 
 	
 		
-	private int nbCaseH,nbCaseL;
+	public static int nbCaseH,nbCaseL;
 	final static int largeurCard=105, hauteurCard=165, setnb = 53;	
-	public Card[] tc;
+	public static Card[] tc;
 	java.util.Random r=new java.util.Random();
 	java.util.Random r2=new java.util.Random();
 	public MemoryPanel(int nbCaseL, int nbCaseH)
@@ -65,8 +65,11 @@ public class MemoryPanel extends Panel {
 		}
 			
 		setBackground(Color.black);
+		addMouseListener(this);	
 			
 	}
+
+
 
 	
 }
