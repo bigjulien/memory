@@ -9,6 +9,8 @@ public class MemoryFrame extends Frame {
 	Menu game = new Menu("Game");
 	MenuItem nouvelle_partie = new MenuItem("Nouvelle partie");
 	MenuItem quitter = new MenuItem("Quitter");
+	
+	//Vérifier que la dim <= 52*2
 	Panel p = new MemoryPanel(4,7);
 
     
