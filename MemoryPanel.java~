@@ -70,31 +70,25 @@ public class MemoryPanel extends Panel {
 	}
 	public static void verifier()
 	{
-		int[] numdecarte= new int[2];
-		numdecarte[0] = -1;
-		numdecarte[1] = -1;
+		int val1=0, val2=0;
+
 		int m = 1;		
 		for(int j=0 ; j < (nbCaseL*nbCaseH) ; j++)
-		{				
+		{			
 			
-			if(tc[j].cachee == false && numdecarte[1] != -1)
+			if(tc[j].cachee == false )
 			{
-				
-				if(m ==1) m=0;
-				else m=1;
-				numdecarte[m] = j ;
-				System.out.println("case1: "+numdecarte[0]);
-				System.out.println("CASE2: "+numdecarte[1]);
-			
+				if(val1 == 0)val1= j ;
+				else val2 = j;		
 			}
 			
 			
 		}
 		
-		if((m == 1) && (tc[numdecarte[0]].carte != tc[numdecarte[1]].carte))
+		if((m == 1) && (tc[val1].carte != tc[val2].carte))
 		{
-			tc[numdecarte[0]].cachee = true;
-			tc[numdecarte[1]].cachee = true;
+			tc[val1].cachee = true;
+			tc[val2].cachee = true;
 			System.out.println("ici m ==A1");
 		}
 		
