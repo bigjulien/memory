@@ -8,8 +8,8 @@ import java.util.*;
 class Card extends Canvas implements MouseListener{
 	java.util.Random r=new java.util.Random();
 	BufferedImage b;
-	private String carte ;
-	public boolean cachee ;
+	public String carte ;
+	public boolean cachee, trouvee= false ;
 	
 	
 	Card(String nom,boolean pf)
@@ -48,7 +48,12 @@ class Card extends Canvas implements MouseListener{
 		repaint();
 		
 	}
-
+	public void mouseReleased(MouseEvent e) {
+		
+		MemoryPanel.verifier();
+		repaint();
+		System.out.println("sduqhiu");
+	}
 	
 	public void mouseEntered(MouseEvent e) {}
 
@@ -56,27 +61,7 @@ class Card extends Canvas implements MouseListener{
 	public void mouseExited(MouseEvent e) {}
 	
 	
-	public void mouseReleased(MouseEvent e) {
-		int[] numdecarte= new int[1];
-		int m = 0;
-		for(int j=0 ; j < (MemoryPanel.nbCaseL*MemoryPanel.nbCaseH)-1 ; j++)
-		{
-			int nbcartesret = 0;
-			if(MemoryPanel.tc[j].cachee == false)
-			{
-				nbcartesret++;
-				numdecarte[m] = j ;
-				m++;
-			}
-		}
-		if((m == 2) && (MemoryPanel.tc[numdecarte[0]].carte != MemoryPanel.tc[numdecarte[1]].carte))
-		{
-			MemoryPanel.tc[numdecarte[0]].cachee = true;
-			MemoryPanel.tc[numdecarte[1]].cachee = true;
-		}
 	
-	
-}
 	
 	public void mouseClicked(MouseEvent e) {
 	

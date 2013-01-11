@@ -9,7 +9,7 @@ class Card extends Canvas implements MouseListener{
 	java.util.Random r=new java.util.Random();
 	BufferedImage b;
 	public String carte ;
-	public boolean cachee ;
+	public boolean cachee, trouvee= false ;
 	
 	
 	Card(String nom,boolean pf)
@@ -51,8 +51,7 @@ class Card extends Canvas implements MouseListener{
 	public void mouseReleased(MouseEvent e) {
 		
 		MemoryPanel.verifier();
-		repaint();
-		System.out.println("sduqhiu");
+		
 	}
 	
 	public void mouseEntered(MouseEvent e) {}
