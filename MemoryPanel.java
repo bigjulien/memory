@@ -4,7 +4,7 @@ import java.awt.event.*;
 
 
 
-public class MemoryPanel extends Panel implements MouseListener{ 
+public class MemoryPanel extends Panel { 
 	
 		
 	public static int nbCaseH,nbCaseL;
@@ -65,10 +65,35 @@ public class MemoryPanel extends Panel implements MouseListener{
 		}
 			
 		setBackground(Color.black);
-		addMouseListener(this);	
+		
 			
 	}
+	public static void verifier()
+	{
+		int val1=0, val2=0;
 
+		int m = 1;		
+		for(int j=0 ; j < (nbCaseL*nbCaseH) ; j++)
+		{			
+			
+			if(tc[j].cachee == false )
+			{
+				if(val1 == 0)val1= j ;
+				else val2 = j;		
+			}
+			
+			
+		}
+		
+		if((m == 1) && (tc[val1].carte != tc[val2].carte))
+		{
+			tc[val1].cachee = true;
+			tc[val2].cachee = true;
+			System.out.println("ici m ==A1");
+		}
+		
+		
+	}
 
 
 	
