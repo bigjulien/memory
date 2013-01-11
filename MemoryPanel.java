@@ -10,6 +10,7 @@ public class MemoryPanel extends Panel {
 	public static int nbCaseH,nbCaseL;
 	final static int largeurCard=105, hauteurCard=165, setnb = 53;	
 	public static Card[] tc;
+	private int[] tableauInit;
 	java.util.Random r=new java.util.Random();
 	java.util.Random r2=new java.util.Random();
 	public MemoryPanel(int nbCaseL, int nbCaseH)
@@ -20,12 +21,31 @@ public class MemoryPanel extends Panel {
 		setPreferredSize(new Dimension((largeurCard+1)*nbCaseH,(hauteurCard+1)*nbCaseL));
 		setLayout(new GridLayout(nbCaseL, nbCaseH));
 		tc = new Card[nbCaseH*nbCaseL];
+		
+		//Pour ne pas avoir deux cartes identiques si possible donc la dim max est 100 (10*10)
+		tableauInit = new int[nbCaseH*nbCaseL/2];		
+		
+		for(int z=0 ; z< (nbCaseL*nbCaseH)/2 ; z++)
+		{
+			tableauInit[z] = (r.nextInt(setnb));
+			// -z car on ne compare qu'avec les nombres déja tirés
+			for(int x=0 ; x< ((nbCaseL*nbCaseH)/2)-z ; x++)
+			{
+				if(tableauInit[z] == tableauInit[x])
+				{					
+					tableauInit[z]++;
+				}
+			}
+			
+		}
+
+		
 		for(int k=0 ; k<(nbCaseL*nbCaseH)/2 ; k++)
 		{
 			int quellecase1=0, quellecase2=0;
 			quellecase2 = r.nextInt((nbCaseL*nbCaseH)-1);
 			quellecase1 = r.nextInt((nbCaseL*nbCaseH)-1);
-			String nomCarte = String.valueOf(r.nextInt(setnb));
+			String nomCarte=String.valueOf(tableauInit[k]);
 			// Etant donné qu'on tire des cartes au hasard le jeu peut être plus ou moins facile ...(si on tire plusieurs fois des paires de roi, par exemple)
 			
 			//On parcourt le tableau a la recherche d'une place libre pour la carte 1 , si la place de départ est occupée.
@@ -55,8 +75,8 @@ public class MemoryPanel extends Panel {
 					quellecase2 = 0;
 				}
 			}			
-			tc[quellecase1] = new Card(nomCarte,true);
-			tc[quellecase2] = new Card(nomCarte,true);			
+			tc[quellecase1] = new Card(nomCarte,false);
+			tc[quellecase2] = new Card(nomCarte,false);			
 		}
 		
 		for(int i=0 ; i < (nbCaseL*nbCaseH) ; i++)
