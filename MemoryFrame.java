@@ -38,11 +38,11 @@ public class MemoryFrame extends Frame {
 	
 		setTitle("Memory game");
 		timer.schedule(new TimerTask(){
-  public void run(){
-  l.setText(String.valueOf(i) );	  
-  i--;
-  }
-  }, 1000);
+  		public void run(){
+  		l.setText(String.valueOf(i));	  
+ 		 i--;
+		System.out.println(i);
+  		}}, 1,1000);
 		this.pack();
 		// Eviter l'étalement
 		setResizable(false);
