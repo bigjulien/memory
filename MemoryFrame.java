@@ -6,26 +6,31 @@ import java.util.TimerTask;
 import java.util.Date; 
 public class MemoryFrame extends Frame {
 
-	Label l = new Label("Pas d'informations a afficher");
+		
+	Panel p;
+	Panel bas = new Panel();
+        Timer timer;
+        int i;
+        
+        Label l = new Label("");
+        Label variante = new Label("Variante standard");
 	MenuBar barreMenu = new MenuBar();
 	Menu game = new Menu("Game");
 	MenuItem nouvelle_partie = new MenuItem("Nouvelle partie");
 	MenuItem quitter = new MenuItem("Quitter");
-	
-	//Vérifier que la dim <= 52*2
-	Panel p = new MemoryPanel(4,7);
 
-        Timer timer;
-        int i = 60;
         
-        
-        
-	public MemoryFrame(){
+	public MemoryFrame(int secondes, int lignes, int col){
+		p = new MemoryPanel(lignes, col);
+		i = secondes;
 		timer  = new Timer();
 		
 		setLayout(new BorderLayout());
 		add(p, BorderLayout.CENTER);
-		add(l,BorderLayout.SOUTH);
+		add(bas,BorderLayout.SOUTH);
+		bas.setLayout(new BorderLayout());
+		bas.add(l, BorderLayout.WEST);
+		bas.add(variante, BorderLayout.EAST);
 	
 	
 		// on configure la barre de menu
@@ -37,11 +42,18 @@ public class MemoryFrame extends Frame {
 		quitter.addActionListener(new ActionQuitter());	
 	
 		setTitle("Memory game");
+		//Bien que peu élégante, cette écriture nous évite d'avoir a créer une nouvelle classe dans un nouveau fichier pour pas grand chose.
 		timer.schedule(new TimerTask(){
   		public void run(){
-  		l.setText(String.valueOf(i));	  
- 		 i--;
-		System.out.println(i);
+  		
+  			String trest = String.valueOf(i/60)+":"+String.valueOf(i%60);
+  			if(i<=30)
+  			{
+  				l.setForeground(Color.red);
+  			}
+  			l.setText(trest);	  
+  			i--;
+
   		}}, 1,1000);
 		this.pack();
 		// Eviter l'étalement

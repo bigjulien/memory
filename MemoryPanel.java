@@ -75,8 +75,8 @@ public class MemoryPanel extends Panel {
 					quellecase2 = 0;
 				}
 			}			
-			tc[quellecase1] = new Card(nomCarte,false);
-			tc[quellecase2] = new Card(nomCarte,false);			
+			tc[quellecase1] = new Card(nomCarte,true);
+			tc[quellecase2] = new Card(nomCarte,true);			
 		}
 		
 		for(int i=0 ; i < (nbCaseL*nbCaseH) ; i++)
