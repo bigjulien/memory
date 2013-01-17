@@ -6,7 +6,6 @@ import java.io.*;
 import java.util.*;
 
 class Card extends Canvas implements MouseListener{
-	java.util.Random r=new java.util.Random();
 	BufferedImage b;
 	public String carte ;
 	public boolean cachee, trouvee= false ;
@@ -40,6 +39,8 @@ class Card extends Canvas implements MouseListener{
 		//dessiner une image sur la carte
 		
 	}
+	
+	
 	
 
 	public void mousePressed(MouseEvent e) {

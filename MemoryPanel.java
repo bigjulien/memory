@@ -8,6 +8,7 @@ public class MemoryPanel extends Panel {
 	
 		
 	public static int nbCaseH,nbCaseL;
+	public static int clics = 0;
 	final static int largeurCard=105, hauteurCard=165, setnb = 53;	
 	public static Card[] tc;
 	private int[] tableauInit;
@@ -22,18 +23,22 @@ public class MemoryPanel extends Panel {
 		setLayout(new GridLayout(nbCaseL, nbCaseH));
 		tc = new Card[nbCaseH*nbCaseL];
 		
-		//Pour ne pas avoir deux cartes identiques si possible donc la dim max est 100 (10*10)
+		//Pour ne pas avoir deux cartes identiques si possible)
 		tableauInit = new int[nbCaseH*nbCaseL/2];		
 		
 		for(int z=0 ; z< (nbCaseL*nbCaseH)/2 ; z++)
 		{
 			tableauInit[z] = (r.nextInt(setnb));
-			// -z car on ne compare qu'avec les nombres déja tirés
-			for(int x=0 ; x< ((nbCaseL*nbCaseH)/2)-z ; x++)
+			
+			for(int x=0 ; x < z;  x++)
 			{
 				if(tableauInit[z] == tableauInit[x])
 				{					
-					tableauInit[z]++;
+					tableauInit[z] ++;
+				}
+				if(tableauInit[z] > 53)
+				{					
+					tableauInit[z] =0;
 				}
 			}
 			
@@ -100,28 +105,59 @@ public class MemoryPanel extends Panel {
 				
 				ndecarte[m] = j;
 				if(m==0) m =1;
-				else m =0;	
+				else if(m==1) m =0;	
 			}
 						
 		}
 		
 		if((m==1)&&(tc[ndecarte[0]].carte != tc[ndecarte[1]].carte))
-		{
+		{			
+			
 			tc[ndecarte[0]].cachee = true;
 			tc[ndecarte[1]].cachee = true;
+
+			
 			tc[ndecarte[0]].repaint();
 			tc[ndecarte[1]].repaint();
+			
 		}
-		if((m==1)&&(tc[ndecarte[0]].carte == tc[ndecarte[1]].carte))
+		else if((m==1)&&(tc[ndecarte[0]].carte == tc[ndecarte[1]].carte))
 		{
+			
+			
 			tc[ndecarte[0]].trouvee = true;
 			tc[ndecarte[1]].trouvee = true;
+			
 		}
-
+		clics ++;
+		if((MemoryFrame.ndevariante == -1) && (m==1))
+		{
+			shift();
+		}
+		
 		
 		
 	}
+	public static void shift()
+	{
+		Card tmp = tc[0];
+		for(int a = 0 ; a < nbCaseH*nbCaseL-1; a++)
+		{
+			
+			tc[a].carte = tc[a+1].carte;
+			tc[a].cachee = tc[a+1].cachee;
+			tc[a].trouvee = tc[a+1].trouvee;
+			tc[a].repaint();
+					
+		}
+		tc[nbCaseH*nbCaseL-1].carte = tmp.carte;
+		tc[nbCaseH*nbCaseL-1].cachee = tmp.cachee;
+		tc[nbCaseH*nbCaseL-1].trouvee = tmp.trouvee;
+		
+			
 
+	}
+	
 
 	
 }

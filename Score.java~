@@ -14,17 +14,22 @@ class Score {
 	
 	public void addFichier5(int sc)
 	{
-		try{// Attention os n'est connue que dans ce bloc try. C'est la même chose que pour le i d'un for
+		try{
+			// Attention os n'est connue que dans ce bloc try. C'est la même chose que pour le i d'un for
+			
 			DataOutputStream os = new DataOutputStream(new FileOutputStream(nomFich));// On branche le tuyau (Stream) vers 1 fichier (autre ex = pipe entre processus ) Piped Output Stream
-			DataInputStream is = new DataInputStream(new FileInputStream(nomFich)) ;
+			
 			try {
+				
 				for(int i = 0; i<5 ; i++)
 				{					
-					if(sc < is.readInt())
-					{
-						os.writeInt((byte)sc);
+					if(sc < 8)
+					{						
+						os.writeInt((byte)sc);						
 						break;
 					}
+					
+					
 				}
 			}
 			catch( IOException e)
@@ -35,6 +40,7 @@ class Score {
 			{
 				try {
 					os.close();
+					
 				}
 				catch(IOException e)
 				{
@@ -54,10 +60,10 @@ class Score {
 	public void addDscore(int sc)
 	{
 		try{// Attention os n'est connue que dans ce bloc try. C'est la même chose que pour le i d'un for
-			DataOutputStream os = new DataOutputStream(new FileOutputStream(nomFich2));// On branche le tuyau (Stream) vers 1 fichier (autre ex = pipe entre processus ) Piped Output Stream
+			DataOutputStream os1 = new DataOutputStream(new FileOutputStream(nomFich2));// On branche le tuyau (Stream) vers 1 fichier (autre ex = pipe entre processus ) Piped Output Stream
 			
 			try {
-				os.writeInt((byte)sc);
+				os1.writeInt((byte)sc);
 			}
 			catch( IOException e)
 			{
@@ -66,7 +72,7 @@ class Score {
 			finally
 			{
 				try {
-					os.close();
+					os1.close();
 				}
 				catch(IOException e)
 				{
@@ -86,15 +92,15 @@ class Score {
 	{
 		try{
 			// Attention os n'est connue que dans ce bloc try. C'est la même chose que pour le i d'un for
-			DataOutputStream os = new DataOutputStream(new FileOutputStream(nomFich));// On branche le tuyau (Stream) vers 1 fichier (autre ex = pipe entre processus ) Piped Output Stream
-			DataOutputStream os2 = new DataInputStream(new FileInputStream(nomFich2)) ;
+			DataOutputStream os2 = new DataOutputStream(new FileOutputStream(nomFich));// On branche le tuyau (Stream) vers 1 fichier (autre ex = pipe entre processus ) Piped Output Stream
+			DataOutputStream os3 = new DataOutputStream(new FileOutputStream(nomFich2)) ;
 			try {
 				for(int i = 0; i<5 ; i++)
 				{
-					os.writeInt((byte)0);
+					os2.writeInt((byte)0);
 				
 				}
-				os2.writeInt((byte)0);
+				os3.writeInt((byte)0);
 			}
 			catch( IOException e)
 			{
@@ -103,8 +109,8 @@ class Score {
 			finally
 			{
 				try {
-					os.close();
 					os2.close();
+					os3.close();
 				}
 				catch(IOException e)
 				{
@@ -127,7 +133,7 @@ class Score {
 	String st="";
 	try
 	{
-		DataInputStream is = new DataInputStream( new FileInputStream(nomFich)) ;
+		DataInputStream is1 = new DataInputStream( new FileInputStream(nomFich)) ;
 		boolean finf = false;
 		while(!finf)
 		{
@@ -135,13 +141,13 @@ class Score {
 			{
 				for(int i=0; i<4 ; i++)
 				{
-					st += is.readInt()+"\n";
+					st += is1.readInt()+"\n";
 				}
 			}
 			catch(EOFException e){ finf = true; }
 			catch(IOException e){ e.printStackTrace();}
 		}
-		try { is.close(); } catch(IOException e) {e.printStackTrace();}
+		try { is1.close(); } catch(IOException e) {e.printStackTrace();}
 			
 	}
 	catch(FileNotFoundException e){ e.printStackTrace();}
@@ -150,27 +156,27 @@ class Score {
 	
 	public String getPrecedent()
 	{
-	int value;
+	int value=0;
 	int progression;
 	String st="";
 	try
 	{
-		DataInputStream is = new DataInputStream( new FileInputStream(nomFich)) ;
+		DataInputStream is3 = new DataInputStream( new FileInputStream(nomFich)) ;
 		boolean finf = false;
 		while(!finf)
 		{
 			try
 			{
-				value = is.readInt();
+				value = is3.readInt();
 			}
 			catch(EOFException e){ finf = true; }
 			catch(IOException e){ e.printStackTrace();}
 		}
-		try { is.close(); } catch(IOException e) {e.printStackTrace();}
+		try { is3.close(); } catch(IOException e) {e.printStackTrace();}
 			
 	}
 	catch(FileNotFoundException e){ e.printStackTrace();}
-	progression = value - sc ;
+	progression = value - scoreCourant ;
 	st +=  "Score: "+String.valueOf(value)+"\nProgression: "+String.valueOf(progression);
 	return st;	
 	}		
