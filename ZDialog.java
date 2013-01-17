@@ -112,8 +112,6 @@ public class ZDialog extends JDialog {
 	
 	okBouton.addActionListener(new ActionListener(){
 		public void actionPerformed(ActionEvent arg0) { 
- 	 	    System.out.println(ligne.getSelectedItem());
-		    System.out.println(colonne.getSelectedItem());
 		    new MemoryFrame(Traitement(getVariante()),Integer.valueOf((String)(ligne.getSelectedItem())),Integer.valueOf((String)((colonne.getSelectedItem()))));
 		    dispose();
 		}
