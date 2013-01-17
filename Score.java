@@ -23,14 +23,19 @@ import javax.swing.JTextField;
 
 class Score extends JFrame implements ActionListener{
 	// Le nom de fichier 
-	private String nomFich="top5.bin";
-	private String nomFich2="dscore.bin";
+	private String nomFich;
+	private String nomFich2;
 	public int scoreCourant = 0;
 	JLabel l = new JLabel("");
 	JButton ok = new JButton("OK"); 
 	JButton raz = new JButton("RAZ");
 	JPanel p= new JPanel();
-
+	
+	Score(String fich1,String fich2)
+	{
+		this.nomFich = fich1;
+		this.nomFich2 = fich2;
+	}
 			
 	
 	public void afficher()
