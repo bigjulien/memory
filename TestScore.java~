@@ -1,0 +1,11 @@
+class TestScore {
+    public static void main (String[] args){ 
+	new Score(4);
+	Score.reinit();
+	Score.addFichier5(3);
+	Score.addDscore(5);
+	Score.getTopFive();
+	Score.getPrecedent();
+	//Demarrage
+    }
+}
